@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AndroidQuiz">
+
+    <TextView
+        style="@style/TextViewStyle"
+        android:text="@string/android_quiz_app" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="@string/android_logo"
+        android:src="@drawable/andy" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:textStyle="bold"
+        android:text="@string/mcq" />
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:background="@color/Body"
+            android:orientation="vertical">
+
+
+            <TextView
+                style="@style/QuizTextView"
+                android:text="@string/kernel" />
+
+            <RadioGroup
+                android:id="@+id/Kernel"
+                style="@style/RadioGroup">
+
+                <RadioButton
+                    android:id="@+id/linux"
+                    style="@style/RadioButton"
+                    android:onClick="zoom"
+                    android:text="@string/linux" />
+
+                <RadioButton
+                    android:id="@+id/windows"
+                    style="@style/RadioButton"
+                    android:onClick="slide"
+                    android:text="@string/windows" />
+
+            </RadioGroup>
+
+
+            <TextView
+                style="@style/QuizTextView"
+                android:text="@string/open_source" />
+
+            <RadioGroup
+                android:id="@+id/open_source"
+                style="@style/RadioGroup">
+
+
+                <RadioButton
+                    android:id="@+id/bluetooth"
+                    style="@style/RadioButton"
+                    android:onClick="blink"
+                    android:text="@string/bluetooth_driver" />
+
+                <RadioButton
+                    android:id="@+id/wifi"
+                    style="@style/RadioButton"
+                    android:onClick="clockwise"
+                    android:text="@string/wifi_driver" />
+
+            </RadioGroup>
+
+
+
+            <TextView
+                style="@style/QuizTextView"
+                android:text="@string/in_this_type_of_intent_the_sender_specifies_the_receiver" />
+
+
+            <RadioGroup
+                android:id="@+id/intent"
+                style="@style/RadioGroup">
+
+                <RadioButton
+                    android:id="@+id/implicit"
+                    style="@style/RadioButton"
+                    android:onClick="move"
+                    android:text="@string/implicit_intent" />
+
+                <RadioButton
+                    android:id="@+id/explicit"
+                    style="@style/RadioButton"
+                    android:onClick="blink"
+                    android:text="@string/explicit_intent" />
+            </RadioGroup>
+
+            <TextView
+                style="@style/QuizTextView"
+                android:text="@string/what_does_anr_stand_for" />
+
+
+            <RadioGroup
+                android:id="@+id/ANR"
+                style="@style/RadioGroup">
+
+                <RadioButton
+                    android:id="@+id/anr1"
+                    style="@style/RadioButton"
+                    android:onClick="slide"
+                    android:text="@string/application_not_recognized" />
+
+                <RadioButton
+                    android:id="@+id/anr2"
+                    style="@style/RadioButton"
+                    android:onClick="zoom"
+                    android:text="@string/application_not_responding" />
+            </RadioGroup>
+
+            <TextView
+                style="@style/QuizTextView"
+                android:text="@string/what_does_apk_stand_for" />
+
+
+            <RadioGroup
+                android:id="@+id/APK"
+                style="@style/RadioGroup">
+
+                <RadioButton
+                    android:id="@+id/apk1"
+                    style="@style/RadioButton"
+                    android:onClick="fade"
+                    android:text="@string/android_processing_kit" />
+
+                <RadioButton
+                    android:id="@+id/apk2"
+                    style="@style/RadioButton"
+                    android:onClick="clockwise"
+                    android:text="@string/android_packaging_kit" />
+            </RadioGroup>
+
+            <TextView
+                style="@style/QuizTextView"
+                android:text="@string/_7_bonus_question_alc_stands_for" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/_150_days_of_alc"
+                android:src="@drawable/alcfour" />
+
+
+            <RadioGroup
+                android:id="@+id/ALC"
+                style="@style/RadioGroup">
+
+                <RadioButton
+                    android:id="@+id/alc1"
+                    style="@style/RadioButton"
+                    android:onClick="zoom"
+                    android:text="@string/andela_learning_community" />
+
+                <RadioButton
+                    android:id="@+id/alc2"
+                    style="@style/RadioButton"
+                    android:onClick="blink"
+                    android:text="@string/adult_learning_center" />
+            </RadioGroup>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    style="@style/Button"
+                    android:onClick="submitQuiz"
+                    android:text="@string/submit" />
+
+                <Button
+                    style="@style/Button"
+                    android:onClick="resetQuiz"
+                    android:text="@string/restart" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>
