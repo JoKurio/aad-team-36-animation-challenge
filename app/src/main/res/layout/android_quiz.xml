@@ -44,7 +44,7 @@
         android:layout_height="wrap_content">
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
@@ -52,21 +52,25 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card1"
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
                 android:layout_margin="8dp"
                 card_view:cardCornerRadius="8dp">
 
             <TextView
+                android:id="@+id/text1"
                 style="@style/QuizTextView"
                 android:text="@string/kernel" />
             </androidx.cardview.widget.CardView>
 
             <RadioGroup
                 android:id="@+id/Kernel"
-                style="@style/RadioGroup">
+                style="@style/RadioGroup"
+                android:layout_below="@id/card1">
 
                 <RadioButton
                     android:id="@+id/linux"
@@ -81,23 +85,34 @@
                     android:text="@string/windows" />
 
             </RadioGroup>
+            <ImageView
+                android:id="@+id/img1"
+                style="@style/quizImage"
+                android:layout_below="@id/card1"
+                android:contentDescription="@string/android_logo"
+                android:src="@drawable/andre" />
+
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card2"
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/Kernel"
                 android:layout_margin="8dp"
                 card_view:cardCornerRadius="8dp">
 
             <TextView
+                android:id="@+id/text2"
                 style="@style/QuizTextView"
                 android:text="@string/open_source" />
             </androidx.cardview.widget.CardView>
 
             <RadioGroup
                 android:id="@+id/open_source"
-                style="@style/RadioGroup">
+                style="@style/RadioGroup"
+                android:layout_below="@id/card2">
 
 
                 <RadioButton
@@ -113,17 +128,26 @@
                     android:text="@string/wifi_driver" />
 
             </RadioGroup>
+            <ImageView
+                android:id="@+id/img2"
+                style="@style/quizImage"
+                android:layout_below="@id/card2"
+                android:contentDescription="@string/android_logo"
+                android:src="@drawable/andre" />
 
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card3"
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_gravity="center"
+                android:layout_below="@id/open_source"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 card_view:cardCornerRadius="8dp">
 
             <TextView
+                android:id="@+id/text3"
                 style="@style/QuizTextView"
                 android:text="@string/in_this_type_of_intent_the_sender_specifies_the_receiver" />
             </androidx.cardview.widget.CardView>
@@ -131,7 +155,8 @@
 
             <RadioGroup
                 android:id="@+id/intent"
-                style="@style/RadioGroup">
+                style="@style/RadioGroup"
+                android:layout_below="@id/card3">
 
                 <RadioButton
                     android:id="@+id/implicit"
@@ -145,16 +170,26 @@
                     android:onClick="blink"
                     android:text="@string/explicit_intent" />
             </RadioGroup>
+            <ImageView
+                android:id="@+id/img3"
+                style="@style/quizImage"
+                android:layout_below="@id/card3"
+                android:contentDescription="@string/android_logo"
+                android:src="@drawable/andre" />
+
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card4"
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_gravity="center"
+                android:layout_below="@id/intent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 card_view:cardCornerRadius="8dp">
 
             <TextView
+                android:id="@+id/text4"
                 style="@style/QuizTextView"
                 android:text="@string/what_does_anr_stand_for" />
             </androidx.cardview.widget.CardView>
@@ -162,7 +197,8 @@
 
             <RadioGroup
                 android:id="@+id/ANR"
-                style="@style/RadioGroup">
+                style="@style/RadioGroup"
+                android:layout_below="@id/card4">
 
                 <RadioButton
                     android:id="@+id/anr1"
@@ -176,16 +212,26 @@
                     android:onClick="zoom"
                     android:text="@string/application_not_responding" />
             </RadioGroup>
+            <ImageView
+                android:id="@+id/img4"
+                style="@style/quizImage"
+                android:layout_below="@id/card4"
+                android:contentDescription="@string/android_logo"
+                android:src="@drawable/andre" />
+
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/card5"
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_gravity="center"
+                android:layout_below="@id/ANR"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 card_view:cardCornerRadius="8dp">
 
             <TextView
+                android:id="@+id/text5"
                 style="@style/QuizTextView"
                 android:text="@string/what_does_apk_stand_for" />
             </androidx.cardview.widget.CardView>
@@ -193,7 +239,8 @@
 
             <RadioGroup
                 android:id="@+id/APK"
-                style="@style/RadioGroup">
+                style="@style/RadioGroup"
+                android:layout_below="@id/card5">
 
                 <RadioButton
                     android:id="@+id/apk1"
@@ -208,31 +255,46 @@
                     android:text="@string/android_packaging_kit" />
             </RadioGroup>
 
+            <ImageView
+                android:id="@+id/img5"
+                style="@style/quizImage"
+                android:layout_below="@id/card5"
+                android:contentDescription="@string/android_logo"
+                android:src="@drawable/andre" />
+
+
             <androidx.cardview.widget.CardView
+                android:id="@+id/card6"
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_gravity="center"
+                android:layout_below="@id/APK"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 card_view:cardCornerRadius="8dp">
 
             <TextView
+                android:id="@+id/text6"
                 style="@style/QuizTextView"
                 android:text="@string/_7_bonus_question_alc_stands_for" />
             </androidx.cardview.widget.CardView>
 
 
             <ImageView
+                android:id="@+id/alcImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_centerInParent="true"
+                android:layout_below="@id/card6"
                 android:contentDescription="@string/_150_days_of_alc"
                 android:src="@drawable/alcfour" />
 
 
             <RadioGroup
                 android:id="@+id/ALC"
-                style="@style/RadioGroup">
+                style="@style/RadioGroup"
+                android:layout_below="@id/alcImage">
 
                 <RadioButton
                     android:id="@+id/alc1"
@@ -246,9 +308,19 @@
                     android:onClick="blink"
                     android:text="@string/adult_learning_center" />
             </RadioGroup>
+
+            <ImageView
+                android:id="@+id/img6"
+                style="@style/quizImage"
+                android:layout_below="@id/alcImage"
+                android:contentDescription="@string/android_logo"
+                android:src="@drawable/andre" />
+
             <LinearLayout
+                android:id="@+id/buttonLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/ALC"
                 android:orientation="horizontal">
 
                 <Button
@@ -262,9 +334,7 @@
                     android:text="@string/restart" />
             </LinearLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
     </ScrollView>
-
-
 
 </LinearLayout>
