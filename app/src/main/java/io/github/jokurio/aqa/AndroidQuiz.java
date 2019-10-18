@@ -164,7 +164,7 @@ public class AndroidQuiz extends AppCompatActivity {
         } else if (finalScore == 5) {
             Toast.makeText(this, +finalScore + " points out of 30. Not too good.", Toast.LENGTH_LONG).show();
         } else if (finalScore == 0) {
-            Toast.makeText(this, +finalScore + " points out of 30. Bad day, or geography is just not your thing?", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, +finalScore + " points out of 30. Well, you can always try again", Toast.LENGTH_LONG).show();
         }
     }
 
