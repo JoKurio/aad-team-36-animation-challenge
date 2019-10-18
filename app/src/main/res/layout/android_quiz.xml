@@ -7,9 +7,19 @@
     android:orientation="vertical"
     tools:context=".AndroidQuiz">
 
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        card_view:cardCornerRadius="8dp">
+
+
     <TextView
         style="@style/TextViewStyle"
         android:text="@string/android_quiz_app" />
+    </androidx.cardview.widget.CardView>
 
 
     <ImageView
@@ -18,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:contentDescription="@string/android_logo"
-        android:src="@drawable/andy" />
+        android:src="@drawable/andi" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +40,7 @@
 
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
@@ -41,10 +51,18 @@
             android:background="@color/Body"
             android:orientation="vertical">
 
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                card_view:cardCornerRadius="8dp">
 
             <TextView
                 style="@style/QuizTextView"
                 android:text="@string/kernel" />
+            </androidx.cardview.widget.CardView>
 
             <RadioGroup
                 android:id="@+id/Kernel"
@@ -64,10 +82,18 @@
 
             </RadioGroup>
 
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                card_view:cardCornerRadius="8dp">
 
             <TextView
                 style="@style/QuizTextView"
                 android:text="@string/open_source" />
+            </androidx.cardview.widget.CardView>
 
             <RadioGroup
                 android:id="@+id/open_source"
@@ -89,10 +115,18 @@
             </RadioGroup>
 
 
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                card_view:cardCornerRadius="8dp">
 
             <TextView
                 style="@style/QuizTextView"
                 android:text="@string/in_this_type_of_intent_the_sender_specifies_the_receiver" />
+            </androidx.cardview.widget.CardView>
 
 
             <RadioGroup
@@ -112,9 +146,18 @@
                     android:text="@string/explicit_intent" />
             </RadioGroup>
 
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                card_view:cardCornerRadius="8dp">
+
             <TextView
                 style="@style/QuizTextView"
                 android:text="@string/what_does_anr_stand_for" />
+            </androidx.cardview.widget.CardView>
 
 
             <RadioGroup
@@ -134,9 +177,18 @@
                     android:text="@string/application_not_responding" />
             </RadioGroup>
 
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                card_view:cardCornerRadius="8dp">
+
             <TextView
                 style="@style/QuizTextView"
                 android:text="@string/what_does_apk_stand_for" />
+            </androidx.cardview.widget.CardView>
 
 
             <RadioGroup
@@ -156,9 +208,19 @@
                     android:text="@string/android_packaging_kit" />
             </RadioGroup>
 
+            <androidx.cardview.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                card_view:cardCornerRadius="8dp">
+
             <TextView
                 style="@style/QuizTextView"
                 android:text="@string/_7_bonus_question_alc_stands_for" />
+            </androidx.cardview.widget.CardView>
+
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -185,7 +247,7 @@
                     android:text="@string/adult_learning_center" />
             </RadioGroup>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 

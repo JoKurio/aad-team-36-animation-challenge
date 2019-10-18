@@ -6,11 +6,9 @@
     <string name="linux">Linux</string>
     <string name="windows">Windows</string>
     <string name="ios">iOS</string>
-    <string name="open_source">2)Which of the following driver\'s code is not open source?</string>
-    <string name="device_driver">device driver</string>
+    <string name="open_source">2)Which of the following drivers\' code is not open source?</string>
     <string name="bluetooth_driver">Bluetooth driver</string>
     <string name="wifi_driver">wifi driver</string>
-    <string name="video_driver">video driver</string>
     <string name="implicit_intent">implicit intent</string>
     <string name="explicit_intent">explicit intent</string>
     <string name="in_this_type_of_intent_the_sender_specifies_the_receiver">3)In this type of intent, the sender specifies the receiver:</string>
