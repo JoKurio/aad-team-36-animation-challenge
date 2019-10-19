@@ -9,7 +9,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class AndroidQuiz extends AppCompatActivity {
@@ -31,6 +30,9 @@ public class AndroidQuiz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.android_quiz);
     }
+    /**The following 6 methods(kernel, drivers, intent,ANR, APK and ALC)  animates
+     * the images besides each question as well as the image at the top of the screen
+     */
     public void kernel(View view){
         ImageView imag = findViewById(R.id.imageView);
         ImageView image = findViewById(R.id.img1);
@@ -81,50 +83,8 @@ public class AndroidQuiz extends AppCompatActivity {
         imag.startAnimation(animation);
         alc.startAnimation(animation);
     }
-    public void clockwise(View view){
-        ImageView image = findViewById(R.id.imageView);
-        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
-                R.anim.animation);
-        image.startAnimation(animation);
-    }
 
-
-    public void zoom(View view){
-        ImageView image = findViewById(R.id.imageView);
-        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
-                R.anim.clockwise);
-        image.startAnimation(animation1);
-    }
-
-    public void fade(View view){
-        ImageView image = findViewById(R.id.imageView);
-        Animation animation1 =
-                AnimationUtils.loadAnimation(getApplicationContext(),
-                        R.anim.fade);
-        image.startAnimation(animation1);
-    }
-
-    public void blink(View view){
-        ImageView image = findViewById(R.id.imageView);
-        Animation animation1 =
-                AnimationUtils.loadAnimation(getApplicationContext(),
-                        R.anim.blink);
-        image.startAnimation(animation1);
-    }
-
-    public void move(View view){
-        ImageView image = findViewById(R.id.imageView);
-        Animation animation1 =
-                AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move);
-        image.startAnimation(animation1);
-    }
-
-    public void slide(View view){
-        ImageView image = findViewById(R.id.imageView);
-        Animation animation1 =
-                AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide);
-        image.startAnimation(animation1);
-    }
+    //animates the 'bluetooth' option, so it's animation is different from that of the wifi
     public void wifi(View view){
         ImageView imag = findViewById(R.id.imageView);
         ImageView image = findViewById(R.id.img2);
@@ -134,12 +94,13 @@ public class AndroidQuiz extends AppCompatActivity {
         imag.startAnimation(animation);
     }
     public void submitQuiz(View view) {
+        //Animates the image at the top
         ImageView image = findViewById(R.id.imageView);
         Animation animation1 =
                 AnimationUtils.loadAnimation(getApplicationContext(),
                         R.anim.blink);
         image.startAnimation(animation1);
-
+        //calculates the final score
         int finalScore;
         int quizOne = 0;
         int quizTwo = 0;
@@ -216,7 +177,7 @@ public class AndroidQuiz extends AppCompatActivity {
         }
 
         finalScore = (quizOne + quizTwo + quizThree + quizFour + quizFive + quizSix);
-
+        //Sends a toast message depending on the score
         if (finalScore == 30) {
             Toast.makeText(this, "Perfect!You got all 6 questions right, " + finalScore + " points for you.", Toast.LENGTH_LONG).show();
         } else if (finalScore == 25) {
@@ -233,7 +194,7 @@ public class AndroidQuiz extends AppCompatActivity {
             Toast.makeText(this, +finalScore + " points out of 30. Well, you can always try again", Toast.LENGTH_LONG).show();
         }
     }
-
+    //This method restarts the quiz by resetting all the values
     public void resetQuiz(View v) {
         linux.setChecked(false);
         windows.setChecked(false);
@@ -247,6 +208,8 @@ public class AndroidQuiz extends AppCompatActivity {
         APK1.setChecked(false);
         ANR2.setChecked(false);
         ANR1.setChecked(false);
+
+        //This rotates the image while the quiz is being restarted
         ImageView image = findViewById(R.id.imageView);
         Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.clockwise);
