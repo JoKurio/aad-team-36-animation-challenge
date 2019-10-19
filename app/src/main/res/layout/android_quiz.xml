@@ -75,13 +75,13 @@
                 <RadioButton
                     android:id="@+id/linux"
                     style="@style/RadioButton"
-                    android:onClick="zoom"
+                    android:onClick="kernel"
                     android:text="@string/linux" />
 
                 <RadioButton
                     android:id="@+id/windows"
                     style="@style/RadioButton"
-                    android:onClick="slide"
+                    android:onClick="kernel"
                     android:text="@string/windows" />
 
             </RadioGroup>
@@ -118,13 +118,13 @@
                 <RadioButton
                     android:id="@+id/bluetooth"
                     style="@style/RadioButton"
-                    android:onClick="blink"
+                    android:onClick="drivers"
                     android:text="@string/bluetooth_driver" />
 
                 <RadioButton
                     android:id="@+id/wifi"
                     style="@style/RadioButton"
-                    android:onClick="clockwise"
+                    android:onClick="wifi"
                     android:text="@string/wifi_driver" />
 
             </RadioGroup>
@@ -161,13 +161,13 @@
                 <RadioButton
                     android:id="@+id/implicit"
                     style="@style/RadioButton"
-                    android:onClick="move"
+                    android:onClick="intent"
                     android:text="@string/implicit_intent" />
 
                 <RadioButton
                     android:id="@+id/explicit"
                     style="@style/RadioButton"
-                    android:onClick="blink"
+                    android:onClick="intent"
                     android:text="@string/explicit_intent" />
             </RadioGroup>
             <ImageView
@@ -203,13 +203,13 @@
                 <RadioButton
                     android:id="@+id/anr1"
                     style="@style/RadioButton"
-                    android:onClick="slide"
+                    android:onClick="ANR"
                     android:text="@string/application_not_recognized" />
 
                 <RadioButton
                     android:id="@+id/anr2"
                     style="@style/RadioButton"
-                    android:onClick="zoom"
+                    android:onClick="ANR"
                     android:text="@string/application_not_responding" />
             </RadioGroup>
             <ImageView
@@ -245,13 +245,13 @@
                 <RadioButton
                     android:id="@+id/apk1"
                     style="@style/RadioButton"
-                    android:onClick="fade"
+                    android:onClick="APK"
                     android:text="@string/android_processing_kit" />
 
                 <RadioButton
                     android:id="@+id/apk2"
                     style="@style/RadioButton"
-                    android:onClick="clockwise"
+                    android:onClick="APK"
                     android:text="@string/android_packaging_kit" />
             </RadioGroup>
 
@@ -299,13 +299,13 @@
                 <RadioButton
                     android:id="@+id/alc1"
                     style="@style/RadioButton"
-                    android:onClick="zoom"
+                    android:onClick="ALC"
                     android:text="@string/andela_learning_community" />
 
                 <RadioButton
                     android:id="@+id/alc2"
                     style="@style/RadioButton"
-                    android:onClick="blink"
+                    android:onClick="ALC"
                     android:text="@string/adult_learning_center" />
             </RadioGroup>
 

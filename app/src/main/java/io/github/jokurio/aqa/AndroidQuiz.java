@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class AndroidQuiz extends AppCompatActivity {
@@ -30,12 +31,63 @@ public class AndroidQuiz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.android_quiz);
     }
+    public void kernel(View view){
+        ImageView imag = findViewById(R.id.imageView);
+        ImageView image = findViewById(R.id.img1);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.move);
+        image.startAnimation(animation);
+        imag.startAnimation(animation);
+    }
+    public void drivers(View view){
+        ImageView imag = findViewById(R.id.imageView);
+        ImageView image = findViewById(R.id.img2);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.slide);
+        image.startAnimation(animation);
+        imag.startAnimation(animation);
+    }
+    public void intent(View view){
+        ImageView imag = findViewById(R.id.imageView);
+        ImageView image = findViewById(R.id.img3);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.blink);
+        image.startAnimation(animation);
+        imag.startAnimation(animation);
+    }
+    public void ANR(View view){
+        ImageView imag = findViewById(R.id.imageView);
+        ImageView image = findViewById(R.id.img4);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.fade);
+        image.startAnimation(animation);
+        imag.startAnimation(animation);
+    }
+    public void APK(View view){
+        ImageView imag = findViewById(R.id.imageView);
+        ImageView image = findViewById(R.id.img5);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.animation);
+        image.startAnimation(animation);
+        imag.startAnimation(animation);
+    }
+    public void ALC(View view){
+        ImageView imag = findViewById(R.id.imageView);
+        ImageView image = findViewById(R.id.img6);
+        ImageView alc = findViewById(R.id.alcImage);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.blink);
+        image.startAnimation(animation);
+        imag.startAnimation(animation);
+        alc.startAnimation(animation);
+    }
     public void clockwise(View view){
         ImageView image = findViewById(R.id.imageView);
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.animation);
         image.startAnimation(animation);
     }
+
 
     public void zoom(View view){
         ImageView image = findViewById(R.id.imageView);
@@ -73,7 +125,21 @@ public class AndroidQuiz extends AppCompatActivity {
                 AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide);
         image.startAnimation(animation1);
     }
+    public void wifi(View view){
+        ImageView imag = findViewById(R.id.imageView);
+        ImageView image = findViewById(R.id.img2);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.animation);
+        image.startAnimation(animation);
+        imag.startAnimation(animation);
+    }
     public void submitQuiz(View view) {
+        ImageView image = findViewById(R.id.imageView);
+        Animation animation1 =
+                AnimationUtils.loadAnimation(getApplicationContext(),
+                        R.anim.blink);
+        image.startAnimation(animation1);
+
         int finalScore;
         int quizOne = 0;
         int quizTwo = 0;
@@ -181,6 +247,10 @@ public class AndroidQuiz extends AppCompatActivity {
         APK1.setChecked(false);
         ANR2.setChecked(false);
         ANR1.setChecked(false);
+        ImageView image = findViewById(R.id.imageView);
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.clockwise);
+        image.startAnimation(animation1);
     }
 
 }
