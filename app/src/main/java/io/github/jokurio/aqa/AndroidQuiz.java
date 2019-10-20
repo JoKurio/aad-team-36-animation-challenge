@@ -3,6 +3,8 @@ package io.github.jokurio.aqa;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -40,6 +42,8 @@ public class AndroidQuiz extends AppCompatActivity {
                 R.anim.move);
         image.startAnimation(animation);
         imag.startAnimation(animation);
+
+        zoomSelection(view);
     }
     public void drivers(View view){
         ImageView imag = findViewById(R.id.imageView);
@@ -48,6 +52,8 @@ public class AndroidQuiz extends AppCompatActivity {
                 R.anim.slide);
         image.startAnimation(animation);
         imag.startAnimation(animation);
+
+        zoomSelection(view);
     }
     public void intent(View view){
         ImageView imag = findViewById(R.id.imageView);
@@ -56,6 +62,8 @@ public class AndroidQuiz extends AppCompatActivity {
                 R.anim.blink);
         image.startAnimation(animation);
         imag.startAnimation(animation);
+
+        zoomSelection(view);
     }
     public void ANR(View view){
         ImageView imag = findViewById(R.id.imageView);
@@ -64,6 +72,8 @@ public class AndroidQuiz extends AppCompatActivity {
                 R.anim.fade);
         image.startAnimation(animation);
         imag.startAnimation(animation);
+
+        zoomSelection(view);
     }
     public void APK(View view){
         ImageView imag = findViewById(R.id.imageView);
@@ -72,6 +82,8 @@ public class AndroidQuiz extends AppCompatActivity {
                 R.anim.animation);
         image.startAnimation(animation);
         imag.startAnimation(animation);
+
+        zoomSelection(view);
     }
     public void ALC(View view){
         ImageView imag = findViewById(R.id.imageView);
@@ -82,6 +94,8 @@ public class AndroidQuiz extends AppCompatActivity {
         image.startAnimation(animation);
         imag.startAnimation(animation);
         alc.startAnimation(animation);
+
+        zoomSelection(view);
     }
 
     //animates the 'bluetooth' option, so it's animation is different from that of the wifi
@@ -92,6 +106,8 @@ public class AndroidQuiz extends AppCompatActivity {
                 R.anim.animation);
         image.startAnimation(animation);
         imag.startAnimation(animation);
+
+        zoomSelection(view);
     }
     public void submitQuiz(View view) {
         //Animates the image at the top
@@ -214,6 +230,12 @@ public class AndroidQuiz extends AppCompatActivity {
         Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.clockwise);
         image.startAnimation(animation1);
+    }
+
+    private void zoomSelection(View view){
+        Animator animator = AnimatorInflater.loadAnimator(this, R.animator.zoom);
+        animator.setTarget(view);
+        animator.start();
     }
 
 }
