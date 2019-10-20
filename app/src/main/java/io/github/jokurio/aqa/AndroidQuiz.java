@@ -232,6 +232,7 @@ public class AndroidQuiz extends AppCompatActivity {
         image.startAnimation(animation1);
     }
 
+    // helper function to zoom selected radiobuttons
     private void zoomSelection(View view){
         Animator animator = AnimatorInflater.loadAnimator(this, R.animator.zoom);
         animator.setTarget(view);
