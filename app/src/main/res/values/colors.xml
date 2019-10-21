@@ -2,7 +2,9 @@
 <resources>
     <color name="colorPrimary">#FFFFF0</color>
     <color name="colorPrimaryDark">#F5F5DC</color>
-    <color name="colorAccent">#FFFFF0</color>
+    <color name="colorAccent">#008000</color>
     <color name="RadioGroup">#FFFFF0</color>
     <color name="Body">#F5F5DC</color>
+    <color name="Mustard">#E1AD01</color>
+    <color name="Green">#008000</color>
 </resources>
