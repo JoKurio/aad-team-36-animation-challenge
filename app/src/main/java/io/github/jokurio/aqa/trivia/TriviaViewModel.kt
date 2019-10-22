@@ -5,8 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import com.google.gson.JsonParseException
-import com.techbeloved.aad36challenge.api.OpenTriviaResults
-import com.techbeloved.aad36challenge.api.SAMPLE_RESPONSE
+import io.github.jokurio.aqa.trivia.api.BASE_URL_OPEN_TDB
+import io.github.jokurio.aqa.trivia.api.OpenTriviaApi
+import io.github.jokurio.aqa.trivia.api.OpenTriviaResults
+import io.github.jokurio.aqa.trivia.api.SAMPLE_RESPONSE
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
 import java.util.*
 
@@ -18,6 +25,14 @@ import java.util.*
  * Also, all user inputs are forwarded here for decision making
  */
 class TriviaViewModel : ViewModel() {
+
+    private val openTrivia: OpenTriviaApi by lazy {
+        Retrofit.Builder()
+                .baseUrl(BASE_URL_OPEN_TDB)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(OpenTriviaApi::class.java)
+    }
 
     private var _currentQuestion: Question? = null
     private val _triviaState: MutableLiveData<TriviaState> = MutableLiveData(TriviaState.Default)
@@ -32,34 +47,25 @@ class TriviaViewModel : ViewModel() {
 
     fun startNewGame(playerName: String) {
 
-        val gson = Gson()
-        try {
-            // TODO: Get trivia from api
-            val openTriviaResults: OpenTriviaResults =
-                gson.fromJson(SAMPLE_RESPONSE, OpenTriviaResults::class.java)
-            if (openTriviaResults.responseCode == 0) {
-                val newGame = Game(
+        fetchNewQuestions({ questions ->
+            val newGame = Game(
                     id = UUID.randomUUID().toString(),
                     completed = false,
                     choices = mutableMapOf(),
-                    questions = openTriviaResults.results.map { trivia -> trivia.toQuestion() }
-                )
-                _currentPlayer = Player(
+                    questions = questions
+            )
+            _currentPlayer = Player(
                     name = playerName,
                     game = newGame,
                     score = 0
-                )
-                val nextQuestion = selectNextQuestion()
-                if (nextQuestion != null) {
-                    dispatchNextQuestion(nextQuestion)
-                }
-            } else {
-                Timber.w("Error getting getting questions")
-
+            )
+            val nextQuestion = selectNextQuestion()
+            if (nextQuestion != null) {
+                dispatchNextQuestion(nextQuestion)
             }
-        } catch (e: JsonParseException) {
-            Timber.w(e, "Error parsing response!")
-        }
+        }, { error ->
+            Timber.w(error, "Failed to get questions!")
+        })
 
     }
 
@@ -112,6 +118,35 @@ class TriviaViewModel : ViewModel() {
                     }
                 }
             }
+        }
+    }
+
+    /**
+     * Uses retrofit to make a request to the api for new questions.
+     * @param result callback for receiving the questions result
+     * @param error callback for error results
+     * TODO: add parameters that will allow the user choose which category and how many questions he likes
+     */
+    private fun fetchNewQuestions(result: (List<Question>) -> Unit, error: (Throwable) -> Unit) {
+        try {
+            openTrivia.fetchQuestions().enqueue(object : Callback<OpenTriviaResults> {
+                override fun onFailure(call: Call<OpenTriviaResults>, t: Throwable) {
+                    error(t)
+                }
+
+                override fun onResponse(call: Call<OpenTriviaResults>, response: Response<OpenTriviaResults>) {
+                    val apiResult = response.body()
+                    if (response.isSuccessful && apiResult != null && apiResult.responseCode == 0) {
+                        val questions = apiResult.results.map { it.toQuestion() }
+                        result(questions)
+                    } else {
+                        error(Throwable("Request not successful: ${response.code()} - ${response.message()}"))
+                    }
+                }
+
+            })
+        } catch (ex: Exception) {
+            error(ex)
         }
     }
 }
