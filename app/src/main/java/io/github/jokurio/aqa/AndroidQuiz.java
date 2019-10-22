@@ -121,7 +121,7 @@ public class AndroidQuiz extends AppCompatActivity {
                         R.anim.blink);
         image.startAnimation(animation1);
     }
-    public void submitQuiz(View view) {
+    /**public void submitQuiz(View view) {
 
         int quizOne = 0;
         int quizTwo = 0;
@@ -169,7 +169,7 @@ public class AndroidQuiz extends AppCompatActivity {
         Andela = ALC1.isChecked();
         if (Andela) {
             quizSix = 5;
-        }
+        }*/
         finalScore = (quizOne + quizTwo + quizThree + quizFour + quizFive + quizSix);
 
         Intent intent = new Intent(AndroidQuiz.this, ScoreActivity.class);
