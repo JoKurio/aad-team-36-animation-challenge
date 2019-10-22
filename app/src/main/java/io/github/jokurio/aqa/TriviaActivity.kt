@@ -87,9 +87,9 @@ class TriviaActivity : AppCompatActivity() {
                             choicesLayout.addView(button)
                         }
                     }
-                    // TODO: Add some transition animation
+                    // DONE: Add some transition animation
 
-                    TransitionManager.go(playScene)
+                    TransitionManager.go(playScene, answerOptionsTransition)
 
                 }
                 is TriviaState.GameOn.Correct -> {
@@ -105,8 +105,8 @@ class TriviaActivity : AppCompatActivity() {
                             viewModel.next()
                         }
                     }
-                    // TODO: Add some transition animation
-                    TransitionManager.go(correctScene)
+                    // DONE: Add some transition animation
+                    TransitionManager.go(correctScene, explodeTransition)
 
                 }
                 is TriviaState.GameOn.Incorrect -> {
@@ -122,9 +122,9 @@ class TriviaActivity : AppCompatActivity() {
                             viewModel.next()
                         }
                     }
-                    // TODO: Add some transition animation
+                    // DONE: Add some transition animation
 
-                    TransitionManager.go(incorrectScene)
+                    TransitionManager.go(incorrectScene, explodeTransition)
 
                 }
                 is TriviaState.GameOn.Timeout -> {
