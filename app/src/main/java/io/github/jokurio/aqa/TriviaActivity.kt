@@ -20,6 +20,8 @@ class TriviaActivity : AppCompatActivity() {
 
     private lateinit var viewModel: TriviaViewModel
 
+    private val progressBar = CustomProgressBar()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_trivia)
@@ -29,7 +31,16 @@ class TriviaActivity : AppCompatActivity() {
         }
         viewModel = ViewModelProviders.of(this)[TriviaViewModel::class.java]
 
-
+        viewModel.loading.observe(this, Observer { loading ->
+            Timber.i("Loading: $loading")
+            if (loading) {
+                progressBar.show(this, "Preparing your trivia!")
+            } else {
+                if(progressBar.dialog?.isShowing == true) {
+                    progressBar.dialog?.dismiss()
+                }
+            }
+        })
 
         viewModel.triviaState.observe(this, Observer { triviaState ->
             Timber.i("New State: $triviaState")
@@ -52,6 +63,7 @@ class TriviaActivity : AppCompatActivity() {
                     TransitionManager.go(defaultScene)
 
                 }
+
                 is TriviaState.Play -> {
                     val question = triviaState.question
                     val playView = layoutInflater.inflate(R.layout.scene_play, sceneRoot, false)

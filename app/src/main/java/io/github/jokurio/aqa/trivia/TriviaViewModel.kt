@@ -37,6 +37,9 @@ class TriviaViewModel : ViewModel() {
     private var _currentQuestion: Question? = null
     private val _triviaState: MutableLiveData<TriviaState> = MutableLiveData(TriviaState.Default)
 
+    private val _loading: MutableLiveData<Boolean> = MutableLiveData(false)
+    val loading: LiveData<Boolean> = _loading
+
     private var _currentPlayer: Player? = null
     private var _nextQuestionIndex = 0
 
@@ -47,7 +50,9 @@ class TriviaViewModel : ViewModel() {
 
     fun startNewGame(playerName: String) {
 
+        _loading.value = true
         fetchNewQuestions({ questions ->
+            _loading.value = false
             val newGame = Game(
                     id = UUID.randomUUID().toString(),
                     completed = false,
@@ -64,6 +69,7 @@ class TriviaViewModel : ViewModel() {
                 dispatchNextQuestion(nextQuestion)
             }
         }, { error ->
+            _loading.value = false
             Timber.w(error, "Failed to get questions!")
         })
 
