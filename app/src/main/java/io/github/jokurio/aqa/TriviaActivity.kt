@@ -1,7 +1,9 @@
 package io.github.jokurio.aqa
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Html
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -35,9 +37,9 @@ class TriviaActivity : AppCompatActivity() {
             Timber.i("Loading: $loading")
             if (loading) {
                 if (progressBar.dialog?.isShowing == true) return@Observer
-                progressBar.show(this, "Preparing your trivia!")
+                progressBar.show(this, "Preparing trivia!")
             } else {
-                if(progressBar.dialog?.isShowing == true) {
+                if (progressBar.dialog?.isShowing == true) {
                     progressBar.dialog?.dismiss()
                 }
             }
@@ -72,7 +74,9 @@ class TriviaActivity : AppCompatActivity() {
                     // Transition to scene
 
                     playScene.setEnterAction {
-                        findViewById<TextView>(R.id.textView_play_question).text = question.question
+                        findViewById<TextView>(R.id.textView_play_question).text =
+                                if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.N) Html.fromHtml(question.question)
+                                else Html.fromHtml(question.question, Html.FROM_HTML_MODE_COMPACT)
                         findViewById<TextView>(R.id.textView_play_question_type).text =
                                 question.category
                         findViewById<TextView>(R.id.textView_play_counter).text =
@@ -92,7 +96,9 @@ class TriviaActivity : AppCompatActivity() {
                                     choicesLayout,
                                     false
                             ) as MaterialButton
-                            button.text = answer
+                            button.text = // Clean up html escapes
+                                    if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.N) Html.fromHtml(answer)
+                                    else Html.fromHtml(answer, Html.FROM_HTML_MODE_COMPACT)
                             button.setTag(R.id.answer_choice, answer)
                             button.setOnClickListener { viewModel.selectedAnswer(answer) }
                             button.transitionName = index.toString()
