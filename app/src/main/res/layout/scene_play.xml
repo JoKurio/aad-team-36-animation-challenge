@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Multiple Choice" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView_play_question"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -45,6 +45,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
         android:gravity="bottom"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMaxTextSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/textView_play_counter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,11 +77,12 @@
     <LinearLayout
         android:id="@+id/linearLayout_play_options"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/textView_play_select_instruction"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />

@@ -1,6 +1,6 @@
 package io.github.jokurio.aqa.trivia
 
-import com.techbeloved.aad36challenge.api.OpenTrivia
+import io.github.jokurio.aqa.trivia.api.OpenTrivia
 import java.util.*
 
 /**
