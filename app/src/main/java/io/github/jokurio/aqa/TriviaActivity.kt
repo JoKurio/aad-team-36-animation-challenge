@@ -34,6 +34,7 @@ class TriviaActivity : AppCompatActivity() {
         viewModel.loading.observe(this, Observer { loading ->
             Timber.i("Loading: $loading")
             if (loading) {
+                if (progressBar.dialog?.isShowing == true) return@Observer
                 progressBar.show(this, "Preparing your trivia!")
             } else {
                 if(progressBar.dialog?.isShowing == true) {
